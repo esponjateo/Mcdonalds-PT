@@ -39,8 +39,41 @@
 
   $opt2 = $_SESSION['opt2'];
 
+  
+   if (!isset($_SESSION['opt3'])) 
+   {
+       $_SESSION['opt3'] = 0;
+   }
+   
+   if(isset($_POST["+3"]))
+   {
+       $_SESSION['opt3'] += 1;
+   }
+   
+
+   if (isset($_POST["-3"])) {
+       $_SESSION['opt3'] = max(0, $_SESSION['opt3'] - 1);
+   }
+
+  $opt3 = $_SESSION['opt3'];
 
 
+   if (!isset($_SESSION['opt4'])) 
+   {
+       $_SESSION['opt4'] = 0;
+   }
+   
+   if(isset($_POST["+4"]))
+   {
+       $_SESSION['opt4'] += 1;
+   }
+   
+
+   if (isset($_POST["-4"])) {
+       $_SESSION['opt4'] = max(0, $_SESSION['opt4'] - 1);
+   }
+
+  $opt4 = $_SESSION['opt4'];
 
 
 
@@ -95,8 +128,8 @@
 
         <input type="checkbox" name="Options1" value="Chicken"> A. Chicken <input type="submit" value="-" name="-1"> <span><?php echo $opt1; ?></span> <input type="submit" value="+" name="+1"> <br>
         <input type="checkbox" name="Options1" value="Nuggets"> B. Nuggets <input type="submit" value="-" name="-2"> <span><?php echo $opt2; ?></span> <input type="submit" value="+" name="+2"> <br>
-        <input type="checkbox" name="Options2" value="Pork"> C. Pork <input type="button" value="-" name="-3"> <var name="Input3">0</var> <input type="button" value="+" name="+3"> <br>
-        <input type="checkbox" name="Options3" value="Beef"> D. Beef <input type="button" value="-" name="-4"> <var name="Input4">0</var> <input type="button" value="+" name="+4"> <br>
+        <input type="checkbox" name="Options2" value="Pork"> C. Pork <input type="submit" value="-" name="-3"> <span><?php echo $opt3; ?></span> <input type="submit" value="+" name="+3"> <br>
+        <input type="checkbox" name="Options3" value="Beef"> D. Beef <input type="submit" value="-" name="-4"> <span><?php echo $opt4; ?></span> <input type="submit" value="+" name="+4"> <br>
 
         <input type="submit" name="Confirm" value="Confirm"> 
 
