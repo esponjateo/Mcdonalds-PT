@@ -80,31 +80,6 @@
 
 
 
-
-
-    if(isset($_POST["Confirm"]))
-    {
-
-        if (isset($_POST["Options1"]))
-        {
-
-            echo "I am Ulol <Br>";
-        }
-
-        
-        if (isset($_POST["Options2"]))
-        {
-            echo "I am Tanga<Br>";
-        }
-        
-        if (isset($_POST["Options3"]))
-        {
-            echo "I am Bobo<Br>";
-        }
-        
-    }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -126,22 +101,71 @@
 
 
 
-        <input type="checkbox" name="Options1" value="Chicken"> A. Chicken <input type="submit" value="-" name="-1"> <span><?php echo $opt1; ?></span> <input type="submit" value="+" name="+1"> <br>
-        <input type="checkbox" name="Options1" value="Nuggets"> B. Nuggets <input type="submit" value="-" name="-2"> <span><?php echo $opt2; ?></span> <input type="submit" value="+" name="+2"> <br>
-        <input type="checkbox" name="Options2" value="Pork"> C. Pork <input type="submit" value="-" name="-3"> <span><?php echo $opt3; ?></span> <input type="submit" value="+" name="+3"> <br>
-        <input type="checkbox" name="Options3" value="Beef"> D. Beef <input type="submit" value="-" name="-4"> <span><?php echo $opt4; ?></span> <input type="submit" value="+" name="+4"> <br>
+        <input type="checkbox" name="Options1" value="Chicken"> A. Chicken <input type="submit" value="-" name="-1"> <span><?php echo $opt1; ?></span> <input type="submit" value="+" name="+1"> <label for="">99 Php</label> <br>
+        <input type="checkbox" name="Options2" value="Nuggets"> B. Nuggets <input type="submit" value="-" name="-2"> <span><?php echo $opt2; ?></span> <input type="submit" value="+" name="+2"> <label for="">111 Php</label> <br>
+        <input type="checkbox" name="Options3" value="Pork"> C. Pork <input type="submit" value="-" name="-3"> <span><?php echo $opt3; ?></span> <input type="submit" value="+" name="+3"> <label for="">120 Php</label> <br>
+        <input type="checkbox" name="Options4" value="Beef"> D. Beef <input type="submit" value="-" name="-4"> <span><?php echo $opt4; ?></span> <input type="submit" value="+" name="+4"> <label for="">105 Php</label> <br>
 
-        <input type="submit" name="Confirm" value="Confirm"> 
+        <input type="submit" name="Confirm" value="Confirm" style="margin-bottom: 20px;"> 
 
 
-        
 
 
     </form>
 
+   <?php
+   
 
+   if(isset($_POST["Confirm"]))
+   {
+       $total = 0;
+
+       if (isset($_POST["Options1"]))
+       {
+           $price = 99;
+           $quantity = $_SESSION["opt1"];
+           echo "Chicken x $quantity = " . ($price * $quantity) . " Php<br>";
+           $total += $price * $quantity;
+       }
+
+       
+       if (isset($_POST["Options2"]))
+       {
+           $price = 111;
+           $quantity = $_SESSION["opt2"];
+           echo "Nuggets x $quantity = " . ($price * $quantity) . " Php<br>";
+           $total += $price * $quantity;
+       }
+       
+       if (isset($_POST["Options3"]))
+       {
+           $price = 120;
+           $quantity = $_SESSION["opt3"];
+           echo "Pork x $quantity = " . ($price * $quantity) . " Php<br>";
+           $total += $price * $quantity;
+       }
+       
+
+       
+       if (isset($_POST["Options4"]))
+       {
+           $price = 105;
+           $quantity = $_SESSION["opt4"];
+           echo "Beef x $quantity = " . ($price * $quantity) . " Php<br>";
+           $total += $price * $quantity;
+       }
+       
+
+
+
+       echo "<strong>Total: $total Php</strong><br>";
+   }
+
+
+
+
+   ?>
 
 
 </body>
 </html>
-
